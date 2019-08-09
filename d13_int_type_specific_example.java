@@ -1,4 +1,4 @@
-public class d13_{
+public class d13_int_type_specific_example{
     public static void main(String[] args){
         long i5 = 100L;
         //int i6 = i5;
