@@ -20,7 +20,11 @@ public class d19_{
 		int num = s.nextInt();//停下来等待用户输入。输入之后自动接收，赋值给age变量
 		System.out.println("age = " + num);
 		boolean a2 = true;
-		if(a2) println("OK"); else println("not");
+		if(a2) System.out.println("OK"); else System.out.println("not");//编译通过，if或者else后面只有一行java语句，因此可以通过
+		
+		if(a2) System.out.println("OK"); System.out.println("我是多余的一行");else System.out.println("not");
+		//这样写就会编译报错提示else有语法错误，相当于把if后面第一条语句用大括号括起来了，第二条语句与if无关，即使缩进了也没用，因此会输出：“我是多余的一行”
+		
 		
 	}
 }
