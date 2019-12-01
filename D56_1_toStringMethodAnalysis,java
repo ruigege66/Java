@@ -1,0 +1,25 @@
+package com.bjpowernode.java_learning;
+
+public class D56_1_toStringMethodAnalysis {
+	public static void main(String[] args) {
+		Object o1 = new Object();
+		String s1 = o1.toString();
+		System.out.println(s1);
+		Person56 p1 = new Person56("sha",52);
+		System.out.println(p1);//我们可以看出来，这里打印出来的不是对象，而是打印的对象的toString方法的结果，所以和第11行结果相同
+		String s2 = p1.toString();
+		System.out.println(s2);
+	}
+}
+class Person56 {
+	String name;
+	int age;
+	Person56(String name ,int age){
+		this.name = name ;
+		this.age = age;
+	}
+	//重写这个方法，就要按照项目的实际需求进行重新编写
+	public String toString() {
+		return "Person[name=" + name + ",age=" + age +"]";
+	}
+}
