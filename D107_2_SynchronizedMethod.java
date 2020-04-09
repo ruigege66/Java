@@ -40,14 +40,18 @@ class Accout107_2 {
 	//对外提供一个取款的方法
 	public void withdraw(double money)  {
 		
-		double after = this.balance - money;
-		try {
-			//这里我们故意延迟了一下，可以看出余额不对了
-			Thread.sleep(1000);
-		}catch(InterruptedException e){
-			
+		//把需要同步的代码，放到同步语句块中,参数一定要填共享对象
+		synchronized(this) {
+			double after = this.balance - money;
+			try {
+				//这里我们故意延迟了一下，可以看出余额不对了
+				Thread.sleep(1000);
+			}catch(InterruptedException e){
+				
+			}
+			this.setBalance(after);
 		}
-		this.setBalance(after);
+
 	}
 }
 class Processer107_2 implements Runnable{
