@@ -1,5 +1,7 @@
 package com.bjpowernode.java_learning;
-import java.awt.Frame;
+import java.awt.*;
+import javax.swing.*;
+
 public class D121_1_Component {
 	public static void main(String[] args) {
 		//建立新窗体对象
@@ -10,5 +12,8 @@ public class D121_1_Component {
 		f.setLocation(300,200);
 		//设置窗体可见
 		f.setVisible(true);
+		
+		java.awt.Frame frame = new java.awt.Frame();
+		frame.setLayout(new FlowLayout());
 	}
 }
