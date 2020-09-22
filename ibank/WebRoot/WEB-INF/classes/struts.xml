@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="true" />
+	
+	<!-- 定义默认包 -->
+	<package name="ibank" namespace="/" extends="struts-default">
+		<default-action-ref name="index" />									<!-- 定义默认action -->
+		<action name="index">
+			<result>/index.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 定义system包 -->
+	<package name="default" namespace="/system" extends="struts-default">
+		<interceptors>														<!-- 定义拦截器 -->
+			<interceptor name="checklogin"
+				class="com.ibank.interceptor.LoginInterceptor" />
+		</interceptors>
+		<default-action-ref name="index" />									<!-- 定义默认action -->
+		<action name="index">
+			<result type="redirect">/system/index.jsp</result>
+			<result name="login">/system/login.jsp</result>
+			<result name="login">/system/login.jsp</result>
+			<interceptor-ref name="checklogin" />							<!-- 使用拦截器 -->
+		</action>
+		
+		<!-- 定义操作员登录action -->
+		<action name="login" class="com.ibank.action.AdminAction"
+			method="login">
+			<result name="success" type="redirect">index</result>			<!-- 跳转到另一个action -->
+			<result name="input">/system/login.jsp</result>
+			<result name="error">/system/login.jsp</result>
+		</action>
+		
+		<!-- 定义操作员注销action -->
+		<action name="logout" class="com.ibank.action.AdminAction"
+			method="logout">
+			<result name="logout" type="redirect">/system/login.jsp</result> <!--跳转到网页 -->
+		</action>
+		
+		<!-- 定义开户action -->
+		<action name="registaccount" class="com.ibank.action.AccountAction"
+			method="regist">
+			<result name="success">/system/result_success.jsp</result>
+			<result name="error">/system/result_error.jsp</result>
+		</action>
+		
+		<!-- 定义修改密码action -->
+		<action name="changepwd" class="com.ibank.action.AccountAction"
+			method="changepwd">
+			<result name="success">/system/result_success.jsp</result>
+			<result name="error">/system/result_error.jsp</result>
+		</action>
+		
+		<!-- 定义存款action -->
+		<action name="inputmoney" class="com.ibank.action.AccountAction"
+			method="inputMoney">
+			<result name="success">/system/result_success.jsp</result>
+			<result name="error">/system/result_error.jsp</result>
+		</action>
+		
+		<!-- 定义取款action -->
+		<action name="outputmoney" class="com.ibank.action.AccountAction"
+			method="outputMoney">
+			<result name="success">/system/result_success.jsp</result>
+			<result name="error">/system/result_error.jsp</result>
+		</action>
+		
+		<!-- 定义挂失action -->
+		<action name="reportlost" class="com.ibank.action.AccountAction"
+			method="reportlost">
+			<result name="success">/system/result_success.jsp</result>
+			<result name="error">/system/result_error.jsp</result>
+		</action>
+		
+		<!-- 定义销户action -->
+		<action name="logoff" class="com.ibank.action.AccountAction"
+			method="logoff">
+			<result name="success">/system/result_success.jsp</result>
+			<result name="error">/system/result_error.jsp</result>
+		</action>
+		
+		<!-- 定义查询余额action -->
+		<action name="searchbalance" class="com.ibank.action.AccountAction"
+			method="searchbalance">
+			<result name="success">/system/result_success.jsp</result>
+			<result name="error">/system/result_error.jsp</result>
+		</action>
+		
+		<!-- 定义获取账户信息action -->
+		<action name="getaccountinfo" class="com.ibank.action.AccountAction"
+			method="getaccountinfo">
+			<result name="inputmoney">/system/personal_inputmoney2.jsp</result>
+			<result name="outputmoney">/system/personal_outputmoney2.jsp</result>
+			<result name="error">/system/result_error.jsp</result>
+		</action>
+		
+		<!-- 定义取消挂失action -->
+		<action name="canecllost" class="com.ibank.action.AccountAction"
+			method="canecllost">
+			<result name="success">/system/result_success.jsp</result>
+			<result name="error">/system/result_error.jsp</result>
+		</action>
+		
+		<!-- 定义注册操作员action -->
+		<action name="registadmin" class="com.ibank.action.AdminAction"
+			method="regist">
+			<result name="success">/system/result_success.jsp</result>
+			<result name="error">/system/result_error.jsp</result>
+		</action>
+
+		<!-- 定义修改操作员密码action -->
+		<action name="adminpwdchange" class="com.ibank.action.AdminAction"
+			method="adminpwdchange">
+			<result name="success">/system/result_success.jsp</result>
+			<result name="error">/system/result_error.jsp</result>
+		</action>
+
+		<!-- 定义利率修改action -->
+		<action name="readjustmentofinterestrate" class="com.ibank.action.InterestAction"
+			method="readjustmentofinterestrate">
+			<result name="success">/system/result_success.jsp</result>
+			<result name="input">/system/readjustmentofinterestrate.jsp</result>
+			<result name="error">/system/result_error.jsp</result>
+		</action>
+		
+		<!-- 定义贷款action -->
+		<action name="loan" class="com.ibank.action.LoanAction"
+			method="loan">
+			<result name="success">/system/result_success.jsp</result>
+			<result name="input">/system/loan_transaction.jsp</result>
+			<result name="error">/system/result_error.jsp</result>
+		</action>
+		
+		<!-- 定义获取贷款信息action -->
+		<action name="loaninfo" class="com.ibank.action.LoanAction" method="getLoanInfo">
+			<result name="success">/system/loan_repay2.jsp</result>
+			<result name="input">/system/loan_transaction.jsp</result>
+			<result name="error">/system/result_error.jsp</result>
+		</action>
+		
+		<!-- 定义获还贷款action -->
+		<action name="repayLoan" class="com.ibank.action.LoanAction" method="repayLoan">
+			<result name="success">/system/result_success.jsp</result>
+			<result name="error">/system/result_error.jsp</result>
+		</action>
+		
+		<!-- 定义删除操作员action -->
+		<action name="deleteAdmin" class="com.ibank.action.AdminAction" method="deleteAdmin">
+			<result name="success">/system/result_success.jsp</result>
+			<result name="error">/system/result_error.jsp</result>
+		</action>
+		
+	</package>
+</struts>

@@ -1,0 +1,24 @@
+@CHARSET "UTF-8";
+body, div, td, input {font-size:12px; margin:2px; }
+select {height:20px; width:300px; }
+.title {font-size: 16px; padding: 10px; margin:10px; width:80%; }
+.text {height:23px; width:300px; border:1px solid #AAAAAA; }
+.line {margin:8px; }
+.leftDiv {width:170px; float:left; height:28px; line-height:22px; font-weight:bold; margin-left:40px;margin-top:0px}
+.rightDiv {height:28px; line-height:26px;}
+.button {
+	color:#fff;
+	font-weight:bold;
+	font-size: 11px; 
+	text-align:center;
+	padding:0.17em 0 .2em .17em;
+	border-style:solid;
+	border-width:1px;
+	margin-left:80px;
+	border-color:#9cf #159 #159 #9cf;
+	background:#69c url(../images/bg-btn-blue.gif) repeat-x;
+}
+.button:hover{color:#075B92;}
+.top { background:url(../images/right_table_bg.jpg) repeat-x; height:26px; border-bottom:1px solid #5BA8DE; }
+a{text-decoration:none; color:#075B92;}
+a:hover{color:red;}
