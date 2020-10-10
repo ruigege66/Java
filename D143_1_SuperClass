@@ -1,0 +1,18 @@
+package com.bjpowernode.java_learning;
+
+public class D143_1_SuperClass {
+	//对域var进行注解，表示var已经过时，虽然var已经过时，但是仍然可用
+	@Deprecated
+	int var = 125;
+	
+	@Deprecated
+	public void MethodA() {
+		System.out.println("我是父类中中的MethodA()方法");
+	
+	}
+	
+	public void MethodB() {//定义一个方法用于子类重写
+		System.out.println("我是父类中中的MethodB()方法");
+	}
+
+}
