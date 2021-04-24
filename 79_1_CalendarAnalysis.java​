@@ -30,6 +30,8 @@ public class D79_1_CalendarAnalysis {
 		c1.setTime(d3);
 		//获取星期几
 		System.out.println(c1.get(Calendar.DAY_OF_WEEK));//
+		
+		
 
 	}
 
