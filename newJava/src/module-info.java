@@ -6,4 +6,5 @@
  *
  */
 module NewJavaLearning {
+	requires jdk.compiler;
 }
