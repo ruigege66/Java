@@ -12,6 +12,12 @@ public class D151_HashMapAnalysis {
 		HashMap hashMap = new HashMap();
 		List list1 = new ArrayList();
 		Set set1 = new HashSet();
+		
+
 	}
+    static final int hash(Object key) {
+        int h;
+        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+    }
 
 }
