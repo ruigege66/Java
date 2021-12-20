@@ -13,6 +13,8 @@ public class D151_HashMapAnalysis {
 		List list1 = new ArrayList();
 		Set set1 = new HashSet();
 		
+		
+		
 
 	}
     static final int hash(Object key) {
