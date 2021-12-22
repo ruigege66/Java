@@ -1,6 +1,8 @@
 package com.newJava;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -23,6 +25,25 @@ public class D154_InputOutputStream {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+		}
+		
+		FileOutputStream fis = null;
+		try {
+			fis = new FileOutputStream(address);
+			fis.write("”–µ„”≈–„".getBytes());
+			fis.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		FileReader fr = null;
+		try {
+			fr = new FileReader(address);
+			while((b = fr.read()) != -1) {
+				System.out.println((char)b);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 			
 	}
