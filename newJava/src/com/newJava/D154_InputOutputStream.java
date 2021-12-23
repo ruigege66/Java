@@ -82,5 +82,6 @@ public class D154_InputOutputStream {
  		} catch(Exception e) {
 			e.printStackTrace();
 		}
+		
 	}
 }
